@@ -8,7 +8,7 @@ public class ElementSearchInArray {
         }
         if(element == a[index])
         {
-            return "Element Found";
+            return "Element Found first at "+index;
         }
         else
         {
