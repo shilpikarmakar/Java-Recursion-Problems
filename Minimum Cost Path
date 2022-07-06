@@ -1,0 +1,21 @@
+public class MinimumCostPath {
+    static int mcp(int costMatrix[][], int row, int col)
+    {
+        if(row < 0 || col < 0)
+        {
+            return Integer.MAX_VALUE;
+        }
+        if(row == 0 && col == 0)
+        {
+            return costMatrix[row][col];
+        }
+        int diagonal = mcp(costMatrix, row-1, col-1);
+        int right = mcp(costMatrix, row, col-1);
+        int down = mcp(costMatrix, row-1, col);
+        return costMatrix[row][col]+Math.min(Math.min(diagonal, right), down);
+    }
+    public static void main(String[] args) {
+        int costMatrix[][] = {{2,0,6}, {3,1,7}, {4,5,9}};
+        System.out.println(mcp(costMatrix, 2, 2));
+    }
+}
